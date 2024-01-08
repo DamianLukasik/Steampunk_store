@@ -11,13 +11,7 @@ Sklonuj repozytorium na swój lokalny komputer:
 git clone https://github.com/DamianLukasik/Steampunk_store.git
 ```
 
-2. **Przejdź do katalogu projektu**
-
-```bash
-cd Steampunk_store
-```
-
-3. **Zainstaluj zależności**
+2. **Zainstaluj zależności**
 
 Użyj Composer do zainstalowania niezbędnych zależności:
 
@@ -25,7 +19,7 @@ Użyj Composer do zainstalowania niezbędnych zależności:
 composer install
 ```
 
-4. **Migracje**
+3. **Migracje**
 
 W terminalu można wykonać polecenie dodającą tylko strukturę tabel:
 
@@ -47,13 +41,13 @@ php migrations/AddData.php
 
 pojawi się lista dostępnych opcji, gdzie do wyboru jest możliwość dodawania oraz usuwania danych.
 
-5. **Uruchom lokalny serwer**
+4. **Uruchom lokalny serwer**
 
 ```bash
 php -S 127.0.0.1:8000 -t public
 ```
 
-6. **Otwórz przeglądarkę**
+5. **Otwórz przeglądarkę**
 
 Otwórz przeglądarkę i wejdź na stronę: http://127.0.0.1:8000
 
