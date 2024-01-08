@@ -36,7 +36,6 @@
                         {% if materials is not empty %}
                             <p class="text">Materiały:</p>
                             <ul>
-                                {# Iteruj przez kolekcję materiałów i wyświetl ich nazwy #}
                                 {% for material in materials %}
                                     <li>
                                         {{ material.getMaterial().getName() }}

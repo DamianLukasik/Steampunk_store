@@ -96,7 +96,6 @@ class Material
     public function removeProductmaterial(ProductMaterial $productmaterial): static
     {
         if ($this->productmaterials->removeElement($productmaterial)) {
-            // set the owning side to null (unless already changed)
             if ($productmaterial->getMaterial() === $this) {
                 $productmaterial->setMaterial(null);
             }

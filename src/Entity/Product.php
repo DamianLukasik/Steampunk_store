@@ -168,7 +168,6 @@ class Product
     public function removeOrderitem(OrderItem $orderitem): static
     {
         if ($this->orderitems->removeElement($orderitem)) {
-            // set the owning side to null (unless already changed)
             if ($orderitem->getProduct() === $this) {
                 $orderitem->setProduct(null);
             }
@@ -190,7 +189,6 @@ class Product
     public function removeProductmaterial(ProductMaterial $productmaterial): static
     {
         if ($this->productmaterials->removeElement($productmaterial)) {
-            // set the owning side to null (unless already changed)
             if ($productmaterial->getProduct() === $this) {
                 $productmaterial->setProduct(null);
             }

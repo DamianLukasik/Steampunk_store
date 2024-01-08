@@ -160,7 +160,6 @@ class Order
     public function removeOrderItem(OrderItem $orderitem): static
     {
         if ($this->orderitems->removeElement($orderitem)) {
-            // set the owning side to null (unless already changed)
             if ($orderitem->getOrder() === $this) {
                 $orderitem->setOrder(null);
             }
@@ -190,7 +189,6 @@ class Order
     public function removeOrderComment(OrderComment $ordercomment): static
     {
         if ($this->ordercomments->removeElement($ordercomment)) {
-            // set the owning side to null (unless already changed)
             if ($ordercomment->getOrder() === $this) {
                 $ordercomment->setOrder(null);
             }

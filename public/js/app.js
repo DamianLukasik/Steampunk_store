@@ -1,4 +1,3 @@
-// Zadeklaruj funkcję w globalnym kontekście
 jQuery(function() {
     window.incrementQuantity = function(productId) {
         updateQuantity(productId, 1);
@@ -45,7 +44,6 @@ jQuery(function() {
     }
 
     window.oneAddToCart = function(productId) {
-        // Implementuj logikę dodawania produktu do koszyka
         var dataToSend = [];
 
         dataToSend.push({
@@ -59,15 +57,13 @@ jQuery(function() {
     function send(dataToSend) {
         $.ajax({
             type: 'POST',
-            url: '/create_order', // Zastąp to odpowiednim adresem endpointu w twojej aplikacji
+            url: '/create_order',
             data: JSON.stringify(dataToSend),
             contentType: 'application/json',
             success: function (response) {
-                // Obsłuż odpowiedź od serwera (jeśli potrzebujesz)
                 console.log(response);
             },
             error: function (error) {
-                // Obsłuż błąd (jeśli potrzebujesz)
                 console.error(error);
             },
         });

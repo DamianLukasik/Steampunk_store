@@ -3,7 +3,6 @@ body {
     color: #5A2A17;
 }
 
-/* Resetowanie stylów dla głównego kontenera i kafelków */
 .steampunk-container {
     margin: 20px;
 }
@@ -24,18 +23,16 @@ body {
     border: 1.65px solid #fff;
     border-radius: 5px;
     margin-bottom: 20px;
-    display: flex; /* Dodane */
-    flex-direction: column; /* Dodane */
-    height: 100%; /* Dodane */
+    display: flex; 
+    flex-direction: column;
+    height: 100%;
 }
 
-/* Styl dla nazwy produktu */
 .steampunk-tile h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-/* Styl dla zdjęcia produktu */
 .steampunk-tile img {
     max-width: 100%;
     height: auto;
@@ -47,7 +44,6 @@ body {
 
 ul {list-style-type: square;}
 
-/* Styl dla ceny produktu */
 .steampunk-tile .card-text {
     font-size: 16px;
     margin-bottom: 15px;
@@ -58,14 +54,12 @@ ul {list-style-type: square;}
     margin-bottom: 5px;
 }
 
-/* Styl dla przycisku "Dodaj do koszyka" */
 .steampunk-tile .btn-outline-secondary, button.btn-outline-secondary {
     background-color: #6b3e00;
     color: #ffd700;
     border-color: #ffd700;
 }
 
-/* Styl dla przycisku "Dodaj do koszyka" jeśli jest niedostępny produkt */
 .steampunk-tile .btn-outline-secondary[disabled], button.btn-outline-secondary[disabled] {
     background-color: #6d583a;
     color: #ffec7e;

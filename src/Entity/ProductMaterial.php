@@ -21,11 +21,6 @@ class ProductMaterial
     #[ORM\JoinColumn(nullable: false)]
     private ?Material $material = null;
 
-    public function __construct()
-    {
-        // Inicjalizacja kolekcji w konstruktorze
-    }
-
     public function getId(): ?int
     {
         return $this->id;
