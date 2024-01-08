@@ -41,7 +41,7 @@
                     <div class="card mb-2 box-shadow steampunk-tile">
                         <div class="card-body">
                             <h2>{{ product.name }}</h2>
-                            <img src="images/products/{{ product.image }}" alt="{{ product.name }}" width="500" height="600">
+                            <img src="images/products/{{ product.image }}" alt="{{ product.name }}" onclick="redirectToProduct({{ product.id }})" width="500" height="600">
                             <p class="card-text">Cena: {{ product.price }} zł</p>
                         </div>
                         <div class="d-flex flex-column align-items-end">
