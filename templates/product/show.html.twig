@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}
+
+{% block title %}Produkt{% endblock %}
+
+{% block body %}
+    <div class="container-fluid steampunk-container">
+        <div id="products-container-cart" class="row">
+            <div class="col-md-4 align-self-stretch">
+                <div class="card mb-2 box-shadow steampunk-tile">
+                    <div class="card-body">
+                        <img src="/images/products/{{ product.image }}" alt="{{ product.name }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 align-self-stretch">
+                <div class="card mb-2 box-shadow steampunk-tile">
+                    <div class="card-body">
+                        <div class="steampunk-container-title">
+                            <h2>{{ product.name }}</h2>
+                            <p class="card-text">Cena: {{ product.price }} zł</p>
+                        </div>
+                        <p class="text"><b>Kategoria:</b> {{ product.category.name }}</p>
+                        <p class="text"><b>Producent:</b> {{ product.producer.name }} ({{ product.producer.country }})</p>
+                        <p class="text"><b>Dostępność:</b> {{ product.availability ? 'Dostępny' : 'Brak' }}</p>
+                        <p class="text"><b>Funkcje:</b></p>
+                        <ul>
+                        {% for function in product.functions  %}
+                            <li><p class="text">{{ function }}</p></li>
+                        {% endfor %}
+                        </ul>
+                        {% if materials is not empty %}
+                            <p class="text">Materiały:</p>
+                            <ul>
+                                {# Iteruj przez kolekcję materiałów i wyświetl ich nazwy #}
+                                {% for material in materials %}
+                                    <li>
+                                        {{ material.getMaterial().getName() }}
+                                        {% if material.getMaterial().isIncombustible() %}
+                                            <span title="Ognioodporny"><i class="fas fa-fire"></i></span>
+                                        {% endif %}
+                                        {% if material.getMaterial().isConductivity() %}
+                                            <span title="Przewodnik"><i class="fas fa-bolt"></i></span>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text">Brak materiałów przypisanych do tego produktu.</p>
+                        {% endif %}
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                {% if product.availability %}
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="oneAddToCart({{ product.id }})">Zamów</button>
+                                {% else %}
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled onclick="oneAddToCart({{ product.id }})">Zamów</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zamówienia{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid steampunk-container steampunk-table">
+        <h1>Zamówienia</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Data zamówienia</th>
+                    <th scope="col">Suma częściowa</th>
+                    <th scope="col">VAT</th>
+                    <th scope="col">Suma łączna</th>
+                    <th scope="col">Zapłacono</th>
+                    <th scope="col">Dostarczono</th>
+                    <th scope="col">Liczba produktów</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.date|date('Y-m-d') }}</td>
+                        <td>{{ order.subtotal }}</td>
+                        <td>{{ order.vat }}</td>
+                        <td>{{ order.total }}</td>
+                        <td>{% if order.paid %}<i class="fas fa-check"></i>{% endif %}</td>
+                        <td>{% if order.delivered %}<i class="fas fa-check"></i>{% endif %}</td>
+                        <td>{{ order.getOrderItemsQuantity() }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

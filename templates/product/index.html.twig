@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}
+
+{% block title %}Lista produktów{% endblock %}
+
+{% block body %}
+    <div class="container-fluid steampunk-container">
+        <div class="steampunk-container-title">
+            <h1>Produkty</h1>
+            <button id="switchListProducts" type="button" class="btn btn-sm btn-outline-secondary" onclick="switchListProducts()">Przełącz widok na masowe dodawanie produktów</button>
+        </div>
+        <div id="products-container-one" class="row">
+            {% for product in products %}
+                <div class="col-md-2">
+                    <div class="card mb-2 box-shadow steampunk-tile">
+                        <div class="card-body">
+                            <h2>{{ product.name }}</h2>
+                            <img src="/images/products/{{ product.image }}" alt="{{ product.name }}" onclick="redirectToProduct({{ product.id }})" width="500" height="600">
+                            <p class="card-text">Cena: {{ product.price }} zł</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    {% if product.availability %}
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="oneAddToCart({{ product.id }})">Zamów</button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled onclick="oneAddToCart({{ product.id }})">Zamów</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="products-container-mass" class="row" style="display:none;">
+            {% for product in products %}
+                <div class="col-md-2">
+                    <div class="card mb-2 box-shadow steampunk-tile">
+                        <div class="card-body">
+                            <h2>{{ product.name }}</h2>
+                            <img src="images/products/{{ product.image }}" alt="{{ product.name }}" width="500" height="600">
+                            <p class="card-text">Cena: {{ product.price }} zł</p>
+                        </div>
+                        <div class="d-flex flex-column align-items-end">
+                            {% if product.availability %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="decrementQuantity({{ product.id }})">-</button>
+                                    </div>
+                                    <input type="text" class="form-control" value="0" productId={{ product.id }} id="quantity-{{ product.id }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="incrementQuantity({{ product.id }})">+</button>
+                                    </div>
+                                </div>
+                             {% else %}
+                                <div class="input-group mb-3">
+                                    <p>Niedostępny</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="massAddToCart()">Zamów</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    function redirectToProduct(productId) {
+        window.location.href = "{{ path('product_show', {'id': '__ID__'}) }}".replace('__ID__', productId);
+    }
+    </script>
+{% endblock %}
