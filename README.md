@@ -77,7 +77,7 @@ Kliknięcie na pozycje w panelu nawigacyjnym 'Zamówienia' przekierowuje użytko
 
 Zdjęcia zostały wygenerowane przy użyciu midjourney (https://www.midjourney.com/explore)
 
-Wykorzystano:
+2. **Wykorzystano:**
 - jquery
 - bootstrap
 - font awesome
