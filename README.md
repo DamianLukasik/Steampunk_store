@@ -61,11 +61,11 @@ Otwórz przeglądarkę i wejdź na stronę: http://127.0.0.1:8000
 
 1. **Lista produktów**
 
-na stronie `\` można podejrzeć listę produktów. Przycisk 'Przełącz widok na masowe dodawanie produktów' umożliwia przełączenie widoku na tryb masowego dodawania produktów polegające na ustawieniu liczby danego produktu przy użyciu przycisków + i -, aby przy pomocy przycisku 'Zamów' stworzyć zamówienie. Tryb 'Przełącz widok na pojedyncze dodawanie produktów' umożliwia stworzenie zamówienia z jednym produktem przy pomocy przycisku 'Zamów' pod danym produktem.
+na stronie `\` można podejrzeć listę produktów. Przycisk 'Przełącz widok na masowe dodawanie produktów' umożliwia przełączenie widoku na tryb masowego dodawania produktów. Przy trybie masowego dodawania produktów można ustawić liczbę danego produktu przy pomocy przycisków + i -. Przy pomocy przycisku 'Zamów' wybierane są te produkty, pod którymi liczba jest większe od zera, aby następnie stworzyć zamówienie. Tryb 'Przełącz widok na pojedyncze dodawanie produktów' umożliwia stworzenie zamówienia z jednym produktem przy pomocy przycisku 'Zamów' pod danym produktem.
 
 2. **Karta produktu**
 
-Kliknięcie na obrazek produktu przekierowuje użytkownika na `product/{id}`, gdzie można podejrzeć zdjęcie produktu (wygenerowane przez MidJourney - to nie jest prawdziwy produkt), nazwę, cenę, kategorie, producenta, dostępność (aby móc zamówić), funkcje oraz wykorzystane materiały. Przy każdym materiasle są ikonki oznaczjące czy dany materiał jest ognioodporny i/lub czy przewodzi prąd elektryczny. Dany produkt można dodać do zamówienia poprzez naciśnięcie przycisku 'Zamów'.
+Kliknięcie na obrazek produktu przekierowuje użytkownika na `product/{id}`, gdzie można podejrzeć zdjęcie produktu, jego nazwę, cenę, kategorie, producenta, dostępność (aby móc zamówić), funkcje oraz wykorzystane materiały. Przy każdym materiale są ikonki oznaczjące czy dany materiał jest ognioodporny i/lub czy przewodzi prąd elektryczny. Dany produkt można dodać do zamówienia poprzez naciśnięcie przycisku 'Zamów'.
 
 3. **Karta produktu**
 
@@ -77,7 +77,7 @@ Kliknięcie na pozycje w panelu nawigacyjnym 'Zamówienia' przekierowuje użytko
 
 Zdjęcia zostały wygenerowane przy użyciu midjourney (https://www.midjourney.com/explore)
 
-Wykorzystano:
+2. **Wykorzystano:**
 - jquery
 - bootstrap
 - font awesome
